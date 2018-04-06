@@ -13,6 +13,8 @@ class Joke extends Component{
     //         showResult: false,
     //         error:null
     //     }
+        // this.showClicked = this.showClicked.bind(this);
+        // this.getAnotherClicked = this.getAnotherClicked.bind(this);
     // }
 
     state = {
@@ -21,7 +23,7 @@ class Joke extends Component{
         showResult: false,
         error:null
     }
-
+    
     componentDidMount(){
         this.getJoke()
     }
@@ -47,6 +49,23 @@ class Joke extends Component{
         )
     }
 
+    showClicked = () => {
+        console.log("Clicked on Show");
+        this.setState({
+            showResult: true,
+        })
+    }
+
+    getAnotherClicked = () => {
+        console.log("GET ANOTHAAAA");
+        this.setState({
+            jokeLoaded: false,
+            objResult: {},
+            showResult: false,
+            error: null
+        }, this.getJoke());
+    }
+
     render(){
         const {error, jokeLoaded, objResult, showResult} = this.state;
         return (
@@ -58,10 +77,24 @@ class Joke extends Component{
                     jokeSetup={objResult.setup}
                     jokeType={objResult.type}
                     showResult={showResult}
+                    showClicked={this.showClicked}
+                />
+                <Punchline 
+                    showResult={showResult}
+                    punch={objResult.punchline}
+                    getAnotherClicked={this.getAnotherClicked}
                 />
             </div>
         )
     }
+}
+
+function Punchline(props){
+    return (
+        props.showResult ? <div><h5>{props.punch} LOL! LOL! LOL!</h5>
+        <Button color="secondary" onClick={props.getAnotherClicked}>Get Another Joke</Button></div> :
+        null
+    )
 }
 
 function JokeSetup(props){
