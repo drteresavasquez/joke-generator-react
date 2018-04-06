@@ -49,6 +49,10 @@ class Joke extends Component{
         )
     }
 
+    // IF YOU SET STATE WITH A CONTRUCTOR, YOU CAN USE 
+    //     showClicked(){
+    //     }
+    
     showClicked = () => {
         this.setState({
             showResult: true,
