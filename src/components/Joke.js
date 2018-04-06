@@ -50,14 +50,12 @@ class Joke extends Component{
     }
 
     showClicked = () => {
-        console.log("Clicked on Show");
         this.setState({
             showResult: true,
         })
     }
 
     getAnotherClicked = () => {
-        console.log("GET ANOTHAAAA");
         this.setState({
             jokeLoaded: false,
             objResult: {},
