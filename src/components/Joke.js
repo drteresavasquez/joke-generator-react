@@ -101,7 +101,7 @@ function Punchline(props){
 
 function JokeSetup(props){
     return(
-        <Card body inverse style={{ backgroundColor: '#85144b', borderColor: '#85144b' }}>
+        <Card body inverse style={{ backgroundColor: '#000000', borderColor: '#85144b' }}>
          {props.jokeLoaded ?
             <span>
                <CardTitle>Joke About {props.jokeType.charAt(0).toUpperCase() + props.jokeType.slice(1)}</CardTitle>
