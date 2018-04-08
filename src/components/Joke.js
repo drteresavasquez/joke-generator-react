@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Button } from 'reactstrap';
+import loading from './../images/loading.gif';
 
 class Joke extends Component{
     state = {
@@ -35,70 +36,77 @@ class Joke extends Component{
     }
     
     showClicked = () => {
-        this.setState({
-            showResult: true,
-        })
-    }
-
-    getAnotherClicked = () => {
-        this.setState({
-            jokeLoaded: false,
-            objResult: {},
-            showResult: false,
-            error: null
-        }, this.getJoke());
+        if(!this.state.showResult){
+            this.setState({
+                showResult: true,
+            })
+        }else{
+            this.setState({
+                jokeLoaded: false,
+                objResult: {},
+                showResult: false,
+                error: null
+            }, this.getJoke());
+        }
     }
 
     render(){
         const {error, jokeLoaded, objResult, showResult} = this.state;
         return (
-            error ? <div>Error: {error.message}</div> : 
-            !jokeLoaded ? <div>Loading...</div> : 
-            <div>
-                <JokeSetup 
-                    jokeLoaded={jokeLoaded} 
-                    jokeSetup={objResult.setup}
-                    jokeType={objResult.type}
-                    showResult={showResult}
-                    showClicked={this.showClicked}
-                />
-                <Punchline 
-                    showResult={showResult}
-                    punch={objResult.punchline}
-                    getAnotherClicked={this.getAnotherClicked}
-                />
-            </div>
+                error ? <div className="Joke-Container">Error: {error.message}</div> : 
+                !jokeLoaded ? <div className="Joke-Container"><img src={loading} alt="loading..."/></div> : 
+                <div>
+                    <div className="Joke-Container">
+                        <JokeSetup 
+                            jokeLoaded={jokeLoaded} 
+                            jokeSetup={objResult.setup}
+                            jokeType={objResult.type}
+                            showResult={showResult}
+                            showClicked={this.showClicked}
+                        />
+                        <Punchline 
+                            showResult={showResult}
+                            punch={objResult.punchline}
+                            getAnotherClicked={this.getAnotherClicked}
+                        />
+                    </div>
+                    <div className="App-button">
+                        <ToggableBtn showClicked={this.showClicked} showResult={this.state.showResult}/>
+                    </div>
+                </div>
         )
     }
 }
 
-function Punchline(props){
-    return (
-        props.showResult ? <div><h5>{props.punch} LOL! LOL! LOL!</h5>
-        <Button color="secondary" onClick={props.getAnotherClicked}>Get Another Joke</Button></div> :
-        null
-    )
+class ToggableBtn extends Component{
+    render(){
+        const buttonText = this.props.showResult ? 'Get Another Joke' : 'TELL ME';
+        return(
+            <Button className="Joke-button" onClick={() => { this.props.showClicked() }}>{buttonText}</Button>
+        )
+    }
 }
 
-function JokeSetup(props){
-    return(
-        <Card body inverse style={{ backgroundColor: '#000000', borderColor: '#85144b' }}>
-         {props.jokeLoaded ?
-            <span>
-               <CardTitle>Joke About {props.jokeType.charAt(0).toUpperCase() + props.jokeType.slice(1)}</CardTitle>
-               <CardText>{props.jokeSetup}</CardText>
-               {/* <Button color="info" onClick={props.showClicked}>TELL ME</Button> */}
-            </span>
-            :
-            <CardTitle>Getting a Joke</CardTitle>
-         }
-         {props.showResult ?
-            <div> </div>
-            :
-            <Button color="info" onClick={() => { props.showClicked(props.index) }}>TELL ME</Button>
-         }
-      </Card>
-    )
+class Punchline extends Component{
+    render(){
+        return (
+            this.props.showResult ? 
+                <div className="Punchline">{this.props.punch}</div>  
+                : null
+        )
+    }
+}
+
+class JokeSetup extends Component{
+    render(){
+    return(<div>
+            {
+                this.props.jokeLoaded ?
+                    <div className="Setup">{this.props.jokeSetup}</div> :
+                        this.props.showResult ? <Punchline /> : null
+            }
+        </div>)
+    }
 }
 
 export default Joke;

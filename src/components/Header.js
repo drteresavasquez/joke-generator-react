@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './../images/mwlogoonly.png'
+import logo from './../images/gotjokes.png'
 
 function Header(props){
     return(
         <header className="App-header">
             <img src={logo} className="App-logo" alt="logo"/>
-            <h1 className="App-title">{props.title}</h1>
         </header>
     )
 }

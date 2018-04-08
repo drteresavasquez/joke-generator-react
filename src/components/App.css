@@ -1,18 +1,10 @@
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 70px;
-}
-
-.App-header {
-  background-color: white;
-  height: 150px;
-  padding: 20px;
-  color: black;
-  border-bottom: 3px solid black;
-  margin-bottom: 20px;
+.App-logo{
+  width: 60%;
 }
 
 .App-title {
@@ -21,4 +13,55 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Joke-Container{
+  width: 60%;
+  background: white;
+  border-radius: 10px;
+  margin: auto;
+  height: 80%;
+  padding: 10px;
+  min-height: 300px;
+  border: 2px solid rgb(80, 0, 80);
+}
+
+.Setup{
+  background: rgb(247, 76, 105);
+  width: 70%;
+  border-radius: 10px;
+  margin: 10px;
+  color: white;
+  font-size: 1em;
+  padding: 10px;
+  text-align: left;
+  min-height: 50px;
+}
+
+.Punchline{
+  background: rgb(71, 3, 80);
+  width: 70%;
+  border-radius: 10px;
+  height: 100%;
+  margin: 10px;
+  color: white;
+  font-size: 1em;
+  padding: 10px;
+  text-align: left;
+  margin-left: 29%;
+  min-height: 50px;
+
+}
+
+.App-button{
+  margin-top: 30px;
+}
+
+.Joke-button{
+  height: 60px;
+  border-radius: none !important;
+  background: rgb(69, 69, 206) !important;
+  text-transform: uppercase;
+  font-size: 1.5em !important;
+  width: 300px;
 }
