@@ -63,7 +63,7 @@ class Joke extends Component{
                             jokeType={objResult.type}
                             showResult={showResult}
                             showClicked={this.showClicked}
-                        />
+                        /> 
                         <Punchline 
                             showResult={showResult}
                             punch={objResult.punchline}
@@ -82,7 +82,7 @@ class ToggableBtn extends Component{
     render(){
         const buttonText = this.props.showResult ? 'Get Another Joke' : 'TELL ME';
         return(
-            <Button className="Joke-button" onClick={() => { this.props.showClicked() }}>{buttonText}</Button>
+            <Button className="Joke-button" onClick={() => {this.props.showClicked()}}>{buttonText}</Button>
         )
     }
 }
@@ -92,7 +92,7 @@ class Punchline extends Component{
         return (
             this.props.showResult ? 
                 <div className="Punchline">{this.props.punch}</div>  
-                : null
+                : ''
         )
     }
 }
@@ -102,8 +102,7 @@ class JokeSetup extends Component{
     return(<div>
             {
                 this.props.jokeLoaded ?
-                    <div className="Setup">{this.props.jokeSetup}</div> :
-                        this.props.showResult ? <Punchline /> : null
+                    <div className="Setup">{this.props.jokeSetup}</div> : ''
             }
         </div>)
     }
