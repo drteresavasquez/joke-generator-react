@@ -2,21 +2,6 @@ import React, { Component } from 'react';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
 class Joke extends Component{
-
-    // ********* ONE METHOD OF SETTING STATE
-    // constructor(props){
-    //     super(props);
-
-    //     this.state = {
-    //         jokeLoaded: false,
-    //         objResult: {},
-    //         showResult: false,
-    //         error:null
-    //     }
-        // this.showClicked = this.showClicked.bind(this);
-        // this.getAnotherClicked = this.getAnotherClicked.bind(this);
-    // }
-
     state = {
         jokeLoaded: false,
         objResult: {},
@@ -48,10 +33,6 @@ class Joke extends Component{
             }
         )
     }
-
-    // IF YOU SET STATE WITH A CONTRUCTOR, YOU CAN USE 
-    //     showClicked(){
-    //     }
     
     showClicked = () => {
         this.setState({
