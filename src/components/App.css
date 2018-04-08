@@ -1,4 +1,3 @@
-
 .App {
   text-align: center;
 }
@@ -73,5 +72,8 @@
 @media (max-width: 600px) {
   .Joke-Container{
     width: 90%;
+  }
+  .App-header{
+    margin-top: 50px;
   }
 }
