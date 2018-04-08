@@ -65,3 +65,13 @@
   font-size: 1.5em !important;
   width: 300px;
 }
+
+.Loading-img{
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  .Joke-Container{
+    width: 90%;
+  }
+}

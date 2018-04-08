@@ -54,7 +54,7 @@ class Joke extends Component{
         const {error, jokeLoaded, objResult, showResult} = this.state;
         return (
                 error ? <div className="Joke-Container">Error: {error.message}</div> : 
-                !jokeLoaded ? <div className="Joke-Container"><img src={loading} alt="loading..."/></div> : 
+                !jokeLoaded ? <div className="Joke-Container"><img className="Loading-img" src={loading} alt="loading..."/></div> : 
                 <div>
                     <div className="Joke-Container">
                         <JokeSetup 
