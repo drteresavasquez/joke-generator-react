@@ -100,9 +100,9 @@ class ToggableBtn extends Component{
         return(
             <div className="App-button-items">
             <div className="bottom-header">
-                <div className="icon"><img src={code} alt="code"/></div>
-                <div className="icon"><img src={portfolioicon} alt="portfolio"/></div>
-                <div className="icon"><img src={mainsiteicon} alt="main-site"/></div>
+                <div className="icon"><a href="https://github.com/drteresavasquez/joke-generator-react"><img src={code} alt="code"/></a></div>
+                <div className="icon"><a href="https://portfolio.drteresavasquez.com"><img src={portfolioicon} alt="portfolio"/></a></div>
+                <div className="icon"><a href="http://www.drteresavasquez.com"><img src={mainsiteicon} alt="main-site"/></a></div>
                 <div className="icon last"></div>
             </div>
             <div className="push-joke-button"><img src={jokeButton} alt="joke-button"/></div>
