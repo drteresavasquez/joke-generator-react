@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
 import loading from './../images/imessage-gif-1.gif';
+import jokeButton from './../images/jokeButton.png';
+import code from './../images/codeicon.png';
+import mainsiteicon from './../images/mainsiteicon.png';
+import portfolioicon from './../images/portfolioicon.png';
+
 
 class Joke extends Component{
     state = {
@@ -55,13 +60,17 @@ class Joke extends Component{
         const {error, jokeLoaded, objResult, showResult} = this.state;
         return (
                 error ? <div className="Joke-Container">Error: {error.message}</div> : 
-                !jokeLoaded ? <div className="Joke-Container">
+                !jokeLoaded ? 
+                <div><div className="Joke-Container">
                 <JokeSetup 
                             jokeLoading={<img className="Loading-img" src={loading} alt="loading..."/>} 
                         /> 
-                
-                {/* <img className="Loading-img" src={loading} alt="loading..."/> */}
-                </div> : 
+                </div> 
+                <div className="App-button">
+                        <ToggableBtn showClicked={this.showClicked} showResult={this.state.showResult}/>
+                    </div>
+                </div>
+                : 
                 <div>
                     <div className="Joke-Container">
                         <JokeSetup 
@@ -89,7 +98,16 @@ class ToggableBtn extends Component{
     render(){
         const buttonText = this.props.showResult ? 'Get Another Joke' : 'TELL ME';
         return(
+            <div className="App-button-items">
+            <div className="bottom-header">
+                <div className="icon"><img src={code} alt="code"/></div>
+                <div className="icon"><img src={portfolioicon} alt="portfolio"/></div>
+                <div className="icon"><img src={mainsiteicon} alt="main-site"/></div>
+                <div className="icon last"></div>
+            </div>
+            <div className="push-joke-button"><img src={jokeButton} alt="joke-button"/></div>
             <Button className="Joke-button" onClick={() => {this.props.showClicked()}}>{buttonText}</Button>
+            </div>
         )
     }
 }

@@ -3,8 +3,6 @@ import logo from './../images/joker.png';
 import back from './../images/back.png';
 import info from './../images/info.png';
 import {
-    Navbar,
-    NavbarBrand,
     Nav,
     NavItem,
     NavLink } from 'reactstrap';
