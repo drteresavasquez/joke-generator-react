@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import loading from './../images/loading.gif';
+import loading from './../images/imessage-gif-1.gif';
 
 class Joke extends Component{
     state = {
@@ -16,7 +16,8 @@ class Joke extends Component{
 
     getJoke(){
         console.log("Get Joke()")
-        fetch('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke')
+        setTimeout(() => {
+            fetch('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke')
         .then(result => result.json())
         .then(
             (result) => {
@@ -32,7 +33,7 @@ class Joke extends Component{
                     error: error,
                 })
             }
-        )
+        ) }, 2000);
     }
     
     showClicked = () => {
@@ -54,7 +55,13 @@ class Joke extends Component{
         const {error, jokeLoaded, objResult, showResult} = this.state;
         return (
                 error ? <div className="Joke-Container">Error: {error.message}</div> : 
-                !jokeLoaded ? <div className="Joke-Container"><img className="Loading-img" src={loading} alt="loading..."/></div> : 
+                !jokeLoaded ? <div className="Joke-Container">
+                <JokeSetup 
+                            jokeLoading={<img className="Loading-img" src={loading} alt="loading..."/>} 
+                        /> 
+                
+                {/* <img className="Loading-img" src={loading} alt="loading..."/> */}
+                </div> : 
                 <div>
                     <div className="Joke-Container">
                         <JokeSetup 
@@ -102,7 +109,7 @@ class JokeSetup extends Component{
     return(<div>
             {
                 this.props.jokeLoaded ?
-                    <div className="Setup">{this.props.jokeSetup}</div> : ''
+                    <div className="Setup">{this.props.jokeSetup}</div> : <div className="Setup loading">{this.props.jokeLoading}</div>
             }
         </div>)
     }
