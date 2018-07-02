@@ -9,6 +9,7 @@ export default class Info extends Component{
                 <p>I decided to update the interface so that they and others like us who love to clown around can get a great experience. While this is developed for the phone, it works well on Desktop as well.</p>
 
                 <h3>Technologies:</h3>
+                
                 <ul>
                     <li>ReactJS</li>
                     <li>Joke API</li>
