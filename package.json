@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://drteresavasquez.github.io/joke-generator-react",
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.3.1",
