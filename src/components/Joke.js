@@ -22,7 +22,7 @@ class Joke extends Component{
     getJoke(){
         console.log("Get Joke()")
         setTimeout(() => {
-            fetch('https://08ad1pao69.execute-api.us-east-1.amazonaws.com/dev/random_joke')
+            fetch('https://official-joke-api.appspot.com/random_joke')
         .then(result => result.json())
         .then(
             (result) => {
