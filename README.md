@@ -2,13 +2,10 @@
 This is a joke generator that give you a joke and answer
 
 ## Check out the app!
-<img src="./public/joke.gif"/>
+[Demo](https://drteresavasquez.github.io/joke-generator-react/)
 
 ## Technologies
 - ReactJS
 - reactstrap
 - Joke API
 - JSX
-
-## Screen Shot
-![Joke Generator App](./src/images/screenshot.jpg)
